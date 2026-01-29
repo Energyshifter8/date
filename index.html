@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neg asuult</title>
+    <title>One Important Question</title>
     <style>
       * {
         box-sizing: border-box;
@@ -73,10 +73,10 @@
   </head>
   <body>
     <div class="card">
-      <h1></h1>
-      <p>Arabataas…</p>
+      <h1>Hey antunamastee</h1>
+      <p>Тэгэхээр танд тавих санал байна</p>
 
-      <h2>Will you go on a date with me?</h2>
+      <h2>date with me?</h2>
 
       <div class="buttons">
         <button class="yes" onclick="sayYes()">Yes</button>
@@ -87,7 +87,15 @@
     </div>
 
     <script>
-      function sayYes() {
+      async function sayYes() {
+        await fetch("/api/response", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            answer: "yes",
+            time: new Date().toISOString(),
+          }),
+        });
         document.getElementById("result").textContent = "Alright 🥰✨";
       }
 
